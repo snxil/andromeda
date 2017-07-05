@@ -1,0 +1,16 @@
+{
+  "commandPrefix": "s!",
+  "tagPrefix": "s?",
+  "embeds": {
+    "useRoleColor": true,
+    "defaultColor": "0x966fd6"
+  },
+  "games": {
+    "rotateGame": true,
+    "rotateGameTime": 900000,
+    "requireOnline": true,
+    "streaming": false
+  },
+  "defaultStatus": "online",
+  "token": "YOUR CLIENT TOKEN GOES HERE!"
+}

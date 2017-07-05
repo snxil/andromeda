@@ -1,0 +1,17 @@
+{
+  "name": "andromeda",
+  "version": "0.1.1",
+  "description": "A multi-purpose Discord selfbot written by Cosmos",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Cosmos",
+  "license": "ISC",
+  "dependencies": {
+    "chalk": "^2.0.1",
+    "discord.js": "github:hydrabolt/discord.js#11.1-dev",
+    "moment": "^2.18.1",
+    "sqlite": "^2.8.0"
+  }
+}
