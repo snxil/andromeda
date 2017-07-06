@@ -12,9 +12,13 @@
 ## Commands
 Below are some commands that you may use to interact with andromeda! Commands always start with the command prefix chosen in your `config.json`!
 
+- `colour <colour hex>`: View a preview of a colour from a hex code!
+- `embed <colour hex> <description>`: Create an embed! If a valid colour is not specified, andromeda will use the colour specified in your `config.json`!
 - `emoji`: Create and delete emojis in your guild! Obviously, emoji managing permissions are required!
   - `create <name> <link>`: Create a guild emoji with the specified name and image!
   - `delete <name>`: Delete a guild emoji with the specified name!
+- `help`: Opens this page in your browser!
+  - Use `help dev` to access command help in the `dev` branch!
 - `ping`: Check andromeda's ping and response time!
 - `quote <channel name> <message ID>`: Quote a message! Channel names are required for cross-channel quoting, but are not necessary if the message exists in the current channel!
 - `setgame <game>`: Set your current "playing" status! Leave blank to reset!

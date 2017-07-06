@@ -3,7 +3,7 @@
   "tagPrefix": "s?",
   "embeds": {
     "useRoleColor": true,
-    "defaultColor": "0x966fd6"
+    "defaultColor": "0x6031ae"
   },
   "games": {
     "rotateGame": true,

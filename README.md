@@ -21,6 +21,7 @@ Selfbots are cool and can do some pretty neat things, although they should only 
 - [Downloading files](#downloading-files)
 - [Configuring andromeda](#configuring-andromeda)
 - [Starting andromeda](#starting-andromeda)
+- [TL;DR](#tldr)
 - [Commands](../master/COMMANDS.md)
 - [License](../master/LICENSE)
 
@@ -29,8 +30,10 @@ Selfbots can do some pretty neat things, may allow for functionality absent from
 
 - Complete tags system!
 - Quote messages with ease!
-- Set your game for some added flair!
-- Easily add guild emojis!
+- Set a custom game for some added flair!
+  - Alternatively, randomly get a new game between set intervals!
+- Easily create custom embeds!
+- Quickly and easily previews colours from a hex code!
 
 ## Setup
 
@@ -38,10 +41,10 @@ Selfbots can do some pretty neat things, may allow for functionality absent from
 Sadly this puppy can't run without a little help before-hand! Before we continue, make sure that you have [**git**](https://git-scm.com) and the latest version of [**Node JS**](https://nodejs.org) installed, as we can't run the selfbot without them! Done? Great, we can continue!
 
 ### Downloading Files
-Now that we have everything we need installed, let's download the selfbot; you may wish to download the ZIP, but if you're more of a console kinda guy, feel free to use `git clone https://github.com/cosmoscodes/andromeda.git`! With andromeda now downloaded, navigate to the directory in your console and type `npm i` to install all the packages required for andromeda to run! Everything's installed? Awesome, let's start configuring!
+Now that we have everything we need installed, let's download the selfbot; you may wish to download the ZIP, but if you're more of a console kinda guy, feel free to use `git clone https://github.com/cosmoscodes/andromeda`! With andromeda now downloaded, navigate to the directory in your console and type `npm i` to install all the packages required for andromeda to run! Everything's installed? Awesome, let's start configuring!
 
 ### Configuring andromeda
-With all of our files downloaded, there should be a folder called `config`! In here should be a `config.json` and a `games.json`, but we'll be taking a look at the `config.json` first! There should be a few options for configuring andromeda in here, and I'll outline what each of them mean below!
+With all of our files downloaded, there should be a folder called `config`! In here should be a `defaultconfig.json` and a `games.json`, but we'll be taking a look at the `defaultconfig.json` first! There should be a few options for configuring andromeda in here, and I'll outline what each of them mean below!
 - `commandPrefix`: This is the prefix you will use to interact with andromeda!
 - `tagPrefix`: This prefix is used for interactions with andromeda's tag system!
 - `embeds`: Options for configuring andromeda's embed responses!
@@ -59,6 +62,15 @@ With all of our files downloaded, there should be a folder called `config`! In h
 You may have noticed a few options for rotating your playing game status! If you've set the aforementioned to true, navigate to `games.json` and add some games you want to add to the list! If you follow the format of the pre-existing file, you should have no issues!
 
 ### Starting andromeda
-Everything is set up, awesome! Configuring andromeda is cool and all, but we want to actually *run* it, don't we? Navigate to andromeda's main directory in your console and type `node index.js` to start up the bot, and if everything has been configured correctly, andromeda should be up and running!
+Everything is set up, awesome! Configuring andromeda is cool and all, but we want to actually *run* it, don't we? Navigate to andromeda's main directory in your console and type `node index.js` to start up the bot, and if everything has been configured correctly, andromeda should be up and running! When you first start andromeda, the `defaultconfig.json` file we configured earlier will be automatically renamed to `config.json`, although you may rename this yourself if you so desire!
 
 > On first starting the bot, andromeda will automatically create any databases that may be missing. Don't worry about anything that may pop up, this is normal, and you'll be able to use andromeda just fine!
+
+### TL;DR
+I get it, a huge wall of text may be scary, uninteresting, or just simply a huge turn-off; don't worry, dear reader, I've got your back! If you'd rather cut the chit-chat and jump straight into setting up and using andromeda, follow the basic steps below!
+
+1. Ensure you have [**git**](https://git-scm.com) and [**Node JS**](https://nodejs.org) installed, andromeda can't work without them!
+2. Download andromeda, either by downloading the zip above or using `git clone https://github.com/cosmoscodes/andromeda`!
+3. Navigate to andromeda's directory in your console and type `npm i` to install all of the packages necessary for andromeda to run!
+4. Now that everything's installed, edit `defaultconfig.json` (and maybe `games.json`) to your hearts content
+5. Run andromeda with `node index.js`! `defaultconfig.json` *should* be renamed to `config.json` automatically, but if it doesn't work or you'd rather do it yourself, feel free to!
