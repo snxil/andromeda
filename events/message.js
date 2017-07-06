@@ -21,6 +21,7 @@ module.exports = msg => {
 
     try { // Run the command file
       command = command.replace('thetime', 'time'); // Time command alias
+      command = command.replace('color', 'colour'); // Colour command alias
 
       let cmdFile = require(`../commands/${command}`);
       cmdFile.run(client, msg, args);
