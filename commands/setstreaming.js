@@ -3,7 +3,7 @@ const embedColor = parseInt(config.embeds.defaultColor);
 
 exports.run = function(client, msg, args) {
   let argsJoin = args.join(' ');
-  client.user.setGame(argsJoin); // Set the game
+  client.user.setGame(argsJoin, 'https://www.twitch.tv/twitch'); // Set the game
 
   let confirm = [
     'Can-do!',
@@ -28,9 +28,9 @@ exports.run = function(client, msg, args) {
         color: config.embeds.useRoleColor ?
         (msg.guild ? msg.guild.me.displayColor : embedColor)
         : embedColor,
-        description: `${confirm[~~(Math.random() * confirm.length)]} Now playing **${argsJoin}** :black_heart:`
+        description: `${confirm[~~(Math.random() * confirm.length)]} Now streaming **${argsJoin}** :black_heart:`
       }
     }).then(message => message.delete(10000));
-    console.log(`The game has been set to '${argsJoin}'!`)
+    console.log(`The game has been set to '${argsJoin}' and streaming!`)
   };
 };

@@ -1,5 +1,5 @@
 const config = require('../config/config.json');
-const embedColor = parseInt(embedColor);
+const embedColor = parseInt(config.embeds.defaultColor);
 
 exports.run = function(client, msg, args) {
   let error = { // Error embed
@@ -40,8 +40,7 @@ exports.run = function(client, msg, args) {
       });
     };
   } else
-  if(args[0] === 'delete') { // Delete emojis
-    console.log(msg.guild.name);
+  if(args[0] === 'delete' || args[0] === 'remove') { // Delete emojis
     if(!msg.member.hasPermission('MANAGE_EMOJIS') && !msg.member.hasPermission('ADMINISTRATOR')) { // Insufficient permissions
       error.description = `Sorry, you don't have permissions to delete emojis in ${msg.guild.name}!`;
       msg.edit({ embed: error }).then(message => message.delete(10000));
@@ -78,6 +77,23 @@ exports.run = function(client, msg, args) {
         msg.edit('', { embed: error }).then(message => message.delete(10000));
       });
     };
+  } else
+  if(args[0] === 'list') { // List custom guild emojis
+    if(msg.channel.guild.emojis.size > 0) {
+      msg.edit('', {embed: {
+        color: config.embeds.useRoleColor ?
+        (msg.guild ? msg.guild.me.displayColor : embedColor)
+        : embedColor,
+        description: `**Custom guild emojis:**\n${msg.channel.guild.emojis.map(e => `\`:${e.name}:\``).join(', ')}`
+        }
+      });
+    } else return msg.edit('', {embed: {
+        color: config.embeds.useRoleColor ?
+        (msg.guild ? msg.guild.me.displayColor : embedColor)
+        : embedColor,
+        description: `There are no custom emojis in this guild!`
+      }
+    });
   } else { // No create/delete
     error.description = 'I don\'t understand the command! Please use the correct format!\n' +
     '`Usage: guildemoji create/delete <name/id> <link>`';

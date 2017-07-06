@@ -22,6 +22,8 @@ module.exports = msg => {
     try { // Run the command file
       command = command.replace('thetime', 'time'); // Time command alias
       command = command.replace('color', 'colour'); // Colour command alias
+      command = command.replace('playing', 'setgame'); // Set game command alias
+      command = command.replace('streaming', 'setstreaming'); // Set streaming command alias
 
       let cmdFile = require(`../commands/${command}`);
       cmdFile.run(client, msg, args);
@@ -156,7 +158,9 @@ module.exports = msg => {
     if(tag === 'list') { // List tags
       sql.all('SELECT * FROM tags').then(collumn => {
         if(collumn.map(c => c.name).length < 1) return msg.edit('', {embed: {
-            color: msg.guild ? msg.guild.me.displayColor : 0x966fd6,
+            color: config.embeds.useRoleColor ?
+            (msg.guild ? msg.guild.me.displayColor : embedColor)
+            : embedColor,
             description: 'You currently don\'t have any tags!'
           }
         }).then(message => message.delete(10000));

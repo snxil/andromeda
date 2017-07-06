@@ -11,15 +11,15 @@ exports.run = function(client, msg, args) {
     }
   }).then(message => message.delete(10000));
 
-  let embedColor = parseInt(/^#[0-9A-F]{6}/i.test(args[0]))
-  ? parseInt(args[0].replace('#', '0x')) : parseInt(config.embeds.defaultColor);
+  let embedColor = /^#[0-9A-F]{6}/i.test(args[0]) ? parseInt(args[0].replace('#', '0x'))
+  : parseInt(config.embeds.defaultColor);
 
   msg.edit('', {embed: {
-      color: testColor ? embedColor
+      color: /^#[0-9A-F]{6}/i.test(args[0]) ? embedColor
       : (config.embeds.useRoleColor ?
       (msg.guild ? msg.guild.me.displayColor : embedColor)
       : embedColor),
-      description: testColor ? embedDescription.split(' ').slice(1).join(' ')
+      description: /^#[0-9A-F]{6}/i.test(args[0]) ? embedDescription.split(' ').slice(1).join(' ')
       : embedDescription
     }
   });

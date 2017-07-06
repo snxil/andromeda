@@ -22,6 +22,7 @@ Below are some commands that you may use to interact with andromeda! Commands al
 - `ping`: Check andromeda's ping and response time!
 - `quote <channel name> <message ID>`: Quote a message! Channel names are required for cross-channel quoting, but are not necessary if the message exists in the current channel!
 - `setgame <game>`: Set your current "playing" status! Leave blank to reset!
+- `setstreaming <game>`: Set your current "streaming" status! Same as above, except purple is pretty!
 - `status <status>`: Change your status with a command!
   - Status must be either `online`, `idle`, `dnd` (Do Not Disturb), or `invisible`!
 - `time`: Show people your system time!
