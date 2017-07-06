@@ -1,5 +1,4 @@
 const config = require('../config/config.json');
-let embedColor = parseInt(config.embeds.defaultColor);
 
 exports.run = function(client, msg, args) {
   let embedDescription = args.join(' ');
@@ -12,12 +11,8 @@ exports.run = function(client, msg, args) {
     }
   }).then(message => message.delete(10000));
 
-  let testColor = /^#[0-9A-F]{6}/i.test(args[0]);
-  if(testColor) {
-    embedColor = parseInt(args[0].replace('#', '0x'));
-  };
-
-  console.log(embedColor);
+  let embedColor = parseInt(/^#[0-9A-F]{6}/i.test(args[0]))
+  ? parseInt(args[0].replace('#', '0x')) : parseInt(config.embeds.defaultColor);
 
   msg.edit('', {embed: {
       color: testColor ? embedColor

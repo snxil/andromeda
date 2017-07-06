@@ -2,8 +2,7 @@ const config = require('../config/config.json');
 const embedColor = parseInt(config.embeds.defaultColor);
 
 exports.run = function(client, msg, args) {
-  let testColor = /^#[0-9A-F]{6}/i.test(args[0]);
-  if(testColor) {
+  if(/^#[0-9A-F]{6}/i.test(args[0])) {
     let colourHex = args[0].slice(1)
     msg.edit('', {embed: {
         title: `:paintbrush: Hex Colour Preview`,
