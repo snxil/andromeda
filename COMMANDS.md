@@ -14,10 +14,6 @@ Below are some commands that you may use to interact with andromeda! Commands al
 
 - `colour <colour hex>`: View a preview of a colour from a hex code!
 - `embed <colour hex> <description>`: Create an embed! If a valid colour is not specified, andromeda will use the colour specified in your `config.json`!
-- `emoji`: Create and delete emojis in your guild! Obviously, emoji managing permissions are required!
-  - `create <name> <link>`: Create a guild emoji with the specified name and image!
-  - `delete <name>`: Delete a guild emoji with the specified name!
-  - `list`: List all of the custom emojis in a guild!
 - `help`: Opens this page in your browser!
   - Use `help dev` to access command help in the `dev` branch!
 - `ping`: Check andromeda's ping and response time!
@@ -28,6 +24,19 @@ Below are some commands that you may use to interact with andromeda! Commands al
   - Status must be either `online`, `idle`, `dnd` (Do Not Disturb), or `invisible`!
 - `time`: Show people your system time!
 - `uptime`: Check how long andromeda's been running!
+
+### Guild Management
+- `emoji`: Create, delete, and list emojis in your guild!
+  - `create <name> <link>`: Create a guild emoji with the specified name and image!
+  - `delete <name>`: Delete the guild emoji with the specified name!
+  - `list`: List all of the custom emojis in a guild!
+  - **Requires emoji managing permissions**
+- `kick <mention> <reason>`: Kick a member from a guild! Reason is optional!
+  - **Requires kick permissions**
+- `ban <mention> <days to clear> <reason>`: Ban a member from a guild! Days and reason are optional!
+  - **Requires ban permissions**
+- `unban <ID>`: Unban a member from a guild with an ID!
+  - **Requires ban permissions**
 
 ## Tags
 Andromeda has a simple tag system that allows you to quickly and easily paste text, as well as list and manage your tags! Tags and tag commands always start with the tag prefix chosen in your `config.json`!
