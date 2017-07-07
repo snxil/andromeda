@@ -57,6 +57,9 @@ With all of our files downloaded, there should be a folder called `config`! In h
   - `requireOnline`: If the client status has to be *online* for a new game to be set!
   - `streaming`: True or false! If *true*, the game will be set with a `streaming` status!
 - `defaultStatus`: This is the status andromeda will automatically apply! `online`, `idle`, `dnd` (Do Not Disturb), or `invisible` (self explanatory)!
+- `defaultGame`: The game for andromeda to set on startup, leave blank to set no game!
+  - If enabled, this will be overridden by `rotateGame`!
+- `defaultGameStreaming`: True or false! If *true*, the default game will be applied with a streaming status!
 - `token`: Finally, this is your Discord token that will allow andromeda to log in~!
 
 You may have noticed a few options for rotating your playing game status! If you've set the aforementioned to true, navigate to `games.json` and add some games you want to add to the list! If you follow the format of the pre-existing file, you should have no issues!

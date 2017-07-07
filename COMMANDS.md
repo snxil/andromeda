@@ -17,6 +17,7 @@ Below are some commands that you may use to interact with andromeda! Commands al
 - `emoji`: Create and delete emojis in your guild! Obviously, emoji managing permissions are required!
   - `create <name> <link>`: Create a guild emoji with the specified name and image!
   - `delete <name>`: Delete a guild emoji with the specified name!
+  - `list`: List all of the custom emojis in a guild!
 - `help`: Opens this page in your browser!
   - Use `help dev` to access command help in the `dev` branch!
 - `ping`: Check andromeda's ping and response time!

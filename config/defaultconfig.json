@@ -12,5 +12,7 @@
     "streaming": false
   },
   "defaultStatus": "online",
+  "defaultGame": "",
+  "defaultGameStreaming": false,
   "token": "YOUR CLIENT TOKEN GOES HERE!"
 }
