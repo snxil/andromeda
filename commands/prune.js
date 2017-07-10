@@ -1,21 +1,11 @@
 const config = require('../config/config.json');
-const embedColor = parseInt(config.embeds.defaultColor);
-
+const responses = require('../assets/responses.json');
 exports.run = async function(client, msg, args) {
   let messageCount = parseInt(args[0]) ?
   (parseInt(args[0]) < 50 ? parseInt(args[0]) : 10)
   : 10;
 
-  let confirm = [
-    'Can-do!',
-    'No problemo!',
-    'Done!',
-    'Mission accomplished!',
-    'Roger-that!',
-    'Aye aye, Captain!'
-  ];
-
-  await msg.edit(`${confirm[~~(Math.random * confirm.length)]} Deleting ${messageCount} messages!`);
+  await msg.edit(`${responses.positive[~~(Math.random() * responses.positive.length)]} Deleting ${messageCount} messages! :thumbsup:`);
 
   msg.channel.fetchMessages({ limit: 100 })
   .then(messages => {

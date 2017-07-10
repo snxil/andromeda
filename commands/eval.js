@@ -1,59 +1,42 @@
 const config = require('../config/config.json');
-const embedColor = parseInt(config.embeds.defaultColor);
-
+const dColor = parseInt(config.embeds.defaultColor.replace('#', '0x'));
+const responses = require('../assets/responses.json');
 exports.run = function(client, msg, args) {
-  const clean = text => {
-    if (typeof(text) === "string")
-      return text.replace(/`/g, "`" + String.fromCharCode(8203)).replace(/@/g, "@" + String.fromCharCode(8203));
-    else
-        return text;
-  };
-
-  if(!args[0]) return msg.edit('', {embed: {
-        title: ':x: Something went wrong~!',
-        color: 0xBE1931,
-        description: 'You have to specify code to eval, sorry!',
-        footer: { text: 'This will automatically clear in 10 seconds' }
-      }
-    }).then(message => message.delete(10000));
+  let embedColor = config.embeds.useRoleColor ?
+  (msg.guild ? msg.guild.me.displayColor : dColor)
+  : dColor;
+  let startTime = new Date();
 
   try {
-    const code = args.join(" ");
+    const code = args.join(' ');
     let evaled = eval(code);
 
-    //if (typeof evaled !== "string")
-      //evaled = require("util").inspect(evaled);
-
-    msg.edit('', {embed: {
-        author: {
-          name: `Evaluated Code`,
-          icon_url: client.user.displayAvatarURL
-        },
-        color: config.embeds.useRoleColor ?
-        (msg.guild ? msg.guild.me.displayColor : embedColor)
-        : embedColor,
+    msg.edit({ embed: {
+        author: { name: 'Eval Success!', icon_url: client.user.displayAvatarURL },
+        color: embedColor,
         description: `**Type:** ${typeof evaled}`,
         fields: [{
           name: ':inbox_tray: Input',
-          value: '```js\n' + clean(code) + '```'
+          value: '```js\n' + code + '```'
         },
         {
           name: ':outbox_tray: Output',
-          value: '```js\n' + clean(evaled) + '```'
+          value: '```js\n' + evaled + '```'
         }],
-        footer: { text: 'Andromeda v0.1.1 by cosmoscodes' }
+        footer: {
+          text: `Code evaluated in ${new Date() - startTime}ms`,
+          icon_url: 'https://i.imgur.com/CEvdMEd.png'
+        }
       }
     });
-    console.log(msg.guild ? `Evaluated code in ${msg.guild.name}, ID: ${msg.guild.id}!`
-    : 'Evaluated code!');
   }
-  catch(err) {
-    msg.edit('', {embed: {
-        title: ':x: Something went wrong~!',
+  catch(e) {
+    msg.edit({ embed: {
+        title: `:x: ${responses.negative[~~(Math.random() * responses.negative.length)]}`,
         color: 0xBE1931,
-        description: '```' + clean(err) + '```',
-        footer: { text: 'This will automatically clear in 10 seconds' }
+        description: '```' + e + '```',
+        footer: { text: 'This will automatically clear in 10 seconds!' }
       }
-    }).then(message => message.delete(10000));
-  }
+    }).then(m => m.delete(10000));
+  };
 };

@@ -1,0 +1,24 @@
+{
+  "positive": [
+    "Can-do!",
+    "No problemo!",
+    "Done!",
+    "Mission accomplished!",
+    "Roger-that!",
+    "Aye aye, Captain!"
+  ],
+  "negative": [
+    "Uh-oh, something went wrong!",
+    "Hmm... That's not right!",
+    "Something went wrong!",
+    "That didn't work as expected!",
+    "Abort! Abort!",
+    "The thing didn't happen!"
+  ],
+  "greetings": [
+    "Hello there!",
+    "Hiya!",
+    "Heya!",
+    "Yoyo!"
+  ]
+}
