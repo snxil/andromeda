@@ -9,5 +9,6 @@ if(fs.existsSync('./config/config.json')) {
 } else {
   fs.rename('./config/defaultconfig.json', './config/config.json');
   console.log('\'defaultconfig.json\' has been renamed to \'config.json\'!\n' +
-  'If you haven\'t already, feel free to configure the config file to your liking!');
+  'If you haven\'t already, feel free to configure the config file to your liking!\n' +
+  'Restart andromeda to get everything up and running!');
 };
