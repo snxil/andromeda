@@ -3,7 +3,7 @@ const dColor = parseInt(config.embeds.defaultColor.replace('#', '0x'));
 const responses = require('../assets/responses.json');
 exports.run = function(client, msg, args) {
   let embedDescription = args.join(' ');
-  if(!embedDescription) = msg.edit({ embed: {
+  if(!embedDescription) return msg.edit({ embed: {
       title: `:x: ${responses.negative[~~(Math.random() * responses.negative.length)]}`,
       color: 0xBE1931,
       description: 'You have to specify a description to create an embed, silly!',
